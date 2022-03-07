@@ -1,0 +1,47 @@
+header{
+    background-color: #365eae;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+}
+header h1{
+    color: #cdedff;
+}
+header span{
+    justify-self: flex-end;
+}
+footer{
+    background-color: #365eae;
+    height: 140px;
+    color: white;
+
+}
+section{
+    border: solid 5px rgb(0, 0, 0);
+    color: white;
+    background-color: rgb(109, 106, 106);
+    height: 700px;
+
+}
+ul{
+    display:flex;
+    justify-content: space-evenly;
+    
+    
+}
+
+ul:first-child{
+    border-bottom: solid 5px whitesmoke ;
+
+}
+@media only screen and (max-width: 768px) {
+    ul{
+        display:flex;
+        justify-content: space-evenly;
+        list-style-type: none;
+        
+    }
+    li:last-child{
+        display: none;
+    }
+}

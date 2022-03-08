@@ -5,42 +5,53 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
     <title>Document</title>
 </head>
 <body>
     <header>
         <h1>Sistema de gerenciamento</h1>
-        <span>Sair</span>
+        <a href="../telaLogin/login.html"><span>Sair</span></a>
     </header>
     <section>
         <ul>
-            <li>Listar clientes</li>
-            <li>Excluir cliente</li>
-            <li>Editar cliente</li>
-            <li>Incluir cliente</li>
+            <li><button type="button">Excluir cliente</button> </li>
+            <li><button type="button">Editar cliente</button> </li>
+            <li><button type="button" id="incluir">Incluir cliente</button> </li>
 
         </ul>
-        <ul>
+        <table> 
+            <tr>
+            <th>Nome</th>
+            <th>dtNasc</th>
+            <th>CPF</th>
+            <th>RG</th>
+            <th>Telefone</th>
+            </tr>
+            <tr>
+                <td>Lucas Dominguez Maia</td>
+                <td>28/11/1999</td>
+                <td>45249833202</td>
+                <td>249381692</td>
+                <td>11971516889</td>
+            </tr>
+            <tr>
+                <td>Lucas Dominguez Maia</td>
+                <td>28/11/1999</td>
+                <td>45249833202</td>
+                <td>249381692</td>
+                <td>11971516889</td>
+            </tr>
+            
+        </table>
         
-            <li>Lucas Dominguez MaiaAaaa</li> 
-            <li>28/11/1999 </li>
-            <li>45149633801 </li>
-            <li>396645094 </li>
-            <li>11947474540 </li>
-
-        </ul>
-        <ul>
-        
-            <li>Cliente 2</li>
-            <li>Data de Nascimento </li>
-            <li>CPF </li>
-            <li>RG </li>
-            <li>Telefone </li>
-
-        </ul>
     </section>
     <footer>
-        Textos bonitos e imagens
-    </footer>
+        
+        <a href="https://github.com/DKS-bit/gerenciamento"> <img src="../imgs/git.png" alt="Github" width="150px" height="150px">
+        </footer>
+        <script src="script.js"></script>
 </body>
 </html>
+
+<!-- INSERT INTO `clientes` (`idCliente`, `nomeCliente`, `dtNascCliente`, `cpfCliente`, `rgCliente`, `telefoneCliente`) VALUES (NULL, 'Sem nome', '1970-01-01', '', '', '0') -->

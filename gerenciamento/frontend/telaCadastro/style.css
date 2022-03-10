@@ -1,0 +1,39 @@
+header{
+    background-color: #365eae;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    color: #cdedff;
+}
+body{
+    color: rgb(255, 255, 255);
+    margin: 0;
+}
+section{
+    color: black;
+    background-color: whitesmoke;
+    height: 800px;
+    width: 30%;
+    border-radius: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+main{
+    display: flex;
+    justify-content: center;
+    background-image:url("http://placekitten.com/g/200/300");
+}
+footer{
+    background-color: #365eae;
+    height: 140px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: solid #365eae 5px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+}
+

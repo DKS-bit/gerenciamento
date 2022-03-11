@@ -9,7 +9,7 @@ $chave = $obj->Chave;
 $return = verificaSessao($username, $chave);
 
 if ($return === True){
-    destruirSessao();
+    destruirSessao($username, $chave);
     http_response_code(200);
     echo json_encode(array("message"=> "Usuário destruido com sucesso!", "usuario" => $username, "chave" => $chave));
 }

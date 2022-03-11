@@ -1,21 +1,23 @@
 <?php
 
-    function gerarChave ($length = 2) {
-        $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-        $count = mb_strlen($chars);
-    
-        for ($i = 0, $result = ''; $i < $length; $i++) {
-            $index = Rand(0, $count - 1);
-            $result .= mb_substr($chars, $index, 1);
-        }
-    
-        $result .= date('dmYhis');
+function gerarChave($length = 2)
+{
+    $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    $count = mb_strlen($chars);
 
-        return $result;
+    for ($i = 0, $result = ''; $i < $length; $i++) {
+        $index = Rand(0, $count - 1);
+        $result .= mb_substr($chars, $index, 1);
     }
 
+    $result .= date('dmYhis');
 
-function criarSessao ($username) {
+    return $result;
+}
+
+
+function criarSessao($username)
+{
 
     $chave = gerarChave();
 
@@ -29,7 +31,8 @@ function criarSessao ($username) {
     return $chave;
 }
 
-function verificaSessao ($username, $chave) {
+function verificaSessao($username, $chave)
+{
 
     $chaveValida = false;
 
@@ -42,10 +45,10 @@ function verificaSessao ($username, $chave) {
     session_write_close();
 
     return $chaveValida;
-    
 }
 
-function destruirSessao ($username, $chave) {
+function destruirSessao($username, $chave)
+{
     if (verificaSessao($username, $chave)) {
         session_id($username);
         session_start();
@@ -54,10 +57,12 @@ function destruirSessao ($username, $chave) {
     }
 }
 
-function sessaoValida(){
-    if(!isset($_COOKIE['usuario']) || !isset($_COOKIE['chave']) || !verificaSessao($_COOKIE['usuario'], $_COOKIE['chave'])){
+function sessaoValida()
+{
+    if (!isset($_COOKIE['usuario']) || !isset($_COOKIE['chave']) || !verificaSessao($_COOKIE['usuario'], $_COOKIE['chave'])) {
         http_response_code(401);
-        header('Location: ../../index.html');
-        exit() ;
+        header('Location: ../login/login.php');
+        exit();
     }
 }
+?>

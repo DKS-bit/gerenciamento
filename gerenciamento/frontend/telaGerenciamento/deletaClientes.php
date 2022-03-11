@@ -1,4 +1,9 @@
 <?php
+
+$obj = json_decode(file_get_contents('php://input'));
+
+$cpfCliente = $obj->cpfCliente;
+
 // Conexcao com o banco de dados mandar isso para dentro de uma funcao OU objeto?
 $host = "localhost";
 $dbUsername = "root";
@@ -10,12 +15,9 @@ if (mysqli_connect_error()) {
     die('Connect Error(' . mysqli_connect_errno() . ')' . mysqli_connect_error());
 }
 // $arr = array();
-$query = "SELECT * FROM clientes LIMIT 10";
-$cliente = mysqli_query($conn, $query);
-$string = "[";
-while ($row = mysqli_fetch_object($cliente)) {
-    $string = $string . json_encode($row) . ", ";
-}
-$string = rtrim($string, ", ");
-$string = $string . "]";
-echo $string;
+$query = "DELETE FROM `clientes` where cpfCliente = ".$cpfCliente;
+$delete = mysqli_query($conn, $query);
+http_response_code(200);
+echo json_encode(array("message" => "Cliente deletado com sucesso."));
+
+?>

@@ -69,6 +69,8 @@ let visualizar = document.getElementById("visualizar");
 
 let incluir = document.getElementById("incluir");
 
+let editar = document.getElementById("editar");
+
 const xhttp = new XMLHttpRequest();
 xhttp.open("GET", "../../../frontend/telaGerenciamento/lerClientes.php");
 xhttp.onload = function () {
@@ -87,6 +89,14 @@ visualizar.addEventListener("click", function () { visualizarCliente() }, false)
 
 incluir.addEventListener("click", function () { incluirCliente() }, false);
 
+editar.addEventListener("click", function () { editarCliente() }, false);
+
+function editarCliente() {
+    let editarCliente = prompt("CPF do cliente que deseja visualizar");
+    sessionStorage.setItem('cpf', editarCliente);
+
+    window.location.href = "../../../backend/routes/editaCliente/editaCliente.php";
+}
 function incluirCliente() {
     window.location.href = "../../../backend/routes/cadastro/cadastro.php";
 }
@@ -157,10 +167,10 @@ function enviaRequest(cpfCliente) {
 
 }
 function visualizarCliente() {
-     let visualizarCliente = prompt("CPF do cliente que deseja visualizar");
+    let visualizarCliente = prompt("CPF do cliente que deseja visualizar");
 
-     sessionStorage.setItem('cpf',visualizarCliente);
-     window.location.href = "../../../backend/routes/cliente/cliente.php";
+    sessionStorage.setItem('cpf', visualizarCliente);
+    window.location.href = "../../../backend/routes/cliente/cliente.php";
 
 }
 

@@ -75,3 +75,59 @@ function preencherTabela(dados) {
         };
     }
 }
+let el = document.getElementById("excluir");
+
+el.addEventListener("click", function () { deletaEndereco() }, false);
+function deletaEndereco() {
+    let deletaEndereco = prompt("ID do endereco que deseja deletar");
+
+    enviaRequest(deletaEndereco);
+
+}
+function enviaRequest(idEndereco) {
+
+    let json = JSON.stringify({ idEndereco: idEndereco });
+    let ajax = new XMLHttpRequest();
+
+    //Qual requisicao sera feita e para onde
+    ajax.open("POST", "../../../frontend/telaCliente/deletaEndereco.php");
+
+    //metodo chamado quando a requisicao for concluida
+    ajax.addEventListener('readystatechange', (ev) => {
+
+        let ajax = ev.target;
+        if (ajax.readyState === XMLHttpRequest.DONE) {
+
+            var responseData = JSON.parse(ajax.responseText);
+
+            if (ajax.status === 200) {
+                alert("Request enviada com sucesso")
+            }
+            else
+                alert(responseData.message);
+        }
+    });
+
+    //tipo de header que sera enviado na requisicao
+    ajax.setRequestHeader('Content-Type', 'application/json');
+
+    //envio de requisicao
+    ajax.send(json);
+
+}
+let incluir = document.getElementById("incluir");
+incluir.addEventListener("click", function () { incluirEndereco() }, false);
+function incluirEndereco() {
+    window.location.href = "../../../backend/routes/cadastroEndereco/cadastroEndereco.php";
+}
+
+
+let editar = document.getElementById("editar");
+
+editar.addEventListener("click", function () { editarEndereco() }, false);
+
+function editarEndereco(){
+    let deletaEndereco = prompt("ID do endereco que deseja editar");
+    sessionStorage.setItem("id",deletaEndereco);
+    window.location.href = "../../../backend/routes/editarEndereco/editarEndereco.php"; 
+}

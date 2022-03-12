@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <h1>Cadastro de Endereco</h1>
+    </header>
+    <main>
+        <section>
+            <!-- Form de criacao do cliente que sera enviado para o backend -->
+            <form action="../../../frontend/telaCadastroEndereco/back.php" method="POST">
+                <input type="text" name="lougradouroEndereco" placeholder="Lougradouro">
+                <input type="text" name="bairroEndereco" placeholder="Bairro ">
+                <input type="text" name="cidadeEndereco" placeholder="Cidade">
+                <input type="text" name="ufEndereco" placeholder="UF">
+                <input type="text" name="complementoEndereco" placeholder="Complemento">
+                <input type="text" name="referenciaEndereco" placeholder="Referencia">
+                <input type="text" name="cepEndereco" placeholder="CEP">
+                <input type="text" name="cpfCliente" id="cpfCliente">
+                <input type="submit" value="submit">
+            </form>
+        </section>
+    </main>
+    <footer>
+        OI
+    </footer>
+</body>
+
+</html>

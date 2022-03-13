@@ -7,16 +7,9 @@ $telefoneCliente = $_POST['telefoneCliente'];
 // Fazer validacao aqui 
 
 
-// Conexcao com o banco de dados mandar isso para dentro de uma funcao OU objeto?
-$host = "localhost"; 
-$dbUsername = "root";
-$dbpassword = "";
-$dbName = "trabalho";
+include('../../backend/bd/conn.php');
+$conn=connBD();
 
-$conn = new mysqli($host, $dbUsername, $dbpassword, $dbName);
-if(mysqli_connect_error()){
-    die('Connect Error('.mysqli_connect_errno().')'.mysqli_connect_error());
-}
 if(!validarCPF($cpfCliente)){
     die('CPF Invalido');
 }

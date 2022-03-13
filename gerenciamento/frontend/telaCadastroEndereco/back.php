@@ -25,3 +25,4 @@ $INSERT = "INSERT INTO enderecocliente(cpfCliente, lougradouroEndereco, bairroEn
 mysqli_query($conn, $INSERT);
 
 //REDIRECIONAR DEPOIS PARA http://localhost/gerenciamento/gerenciamento/backend/routes/cliente/cliente.php
+header('Location: '."http://localhost/gerenciamento/gerenciamento/backend/routes/cliente/cliente.php");

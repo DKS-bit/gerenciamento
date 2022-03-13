@@ -20,3 +20,5 @@ if (mysqli_connect_error()) {
 $UPDATE = "UPDATE enderecocliente set lougradouroEndereco = " . "'" . $lougradouroEndereco . "'" . " , bairroEndereco = " . "'" . $bairroEndereco . "'" . " , cidadeEndereco = " . "'" . $cidadeEndereco . "'" . " , ufEndereco = " . "'" . $ufEndereco . "'" . " , complementoEndereco = " . "'" . $complementoEndereco . "'" . " , referenciaEndereco = " . "'" . $referenciaEndereco . "'" . ", cepEndereco = " . "'" . $cepEndereco . "'" . " WHERE idEndereco = " . $idEndereco;
 $query = mysqli_query($conn, $UPDATE);
 echo ($UPDATE);
+
+header('Location: '."http://localhost/gerenciamento/gerenciamento/backend/routes/cliente/cliente.php");

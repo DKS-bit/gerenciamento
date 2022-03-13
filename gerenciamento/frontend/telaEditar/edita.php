@@ -16,3 +16,5 @@ if (mysqli_connect_error()) {
 $UPDATE = 'UPDATE clientes SET nomeCliente = "' . $nomeCliente . '" , dtNascCliente = '."'" . $dtNascCliente . "' , rgCliente = " . $rgCliente . ", telefoneCliente = " . $telefoneCliente . " WHERE cpfCliente = " . $cpfCliente;
 $query =mysqli_query($conn, $UPDATE);
 echo ($UPDATE);
+
+header('Location: '."http://localhost/gerenciamento/gerenciamento/backend/routes/gerenciamento/gerenciamento.php");

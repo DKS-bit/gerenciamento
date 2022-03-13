@@ -58,5 +58,5 @@ if(!validarCPF($cpfCliente)){
     
 
     
-
+header('Location: '."http://localhost/gerenciamento/gerenciamento/backend/routes/gerenciamento/gerenciamento.php");
 ?>

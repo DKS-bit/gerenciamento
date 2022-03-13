@@ -39,5 +39,4 @@ function fazerLogin() {
   ajax.send(json);
 
 
-
 }

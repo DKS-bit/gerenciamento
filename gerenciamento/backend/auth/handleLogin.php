@@ -22,7 +22,7 @@ if(mysqli_connect_error()){
 }
 
 //Verificar se $usuario é igual a $senha no banco
-$query = "SELECT username , password From USUARIOS WHERE username =".$usuario;
+$query = "SELECT username , password From USUARIOS WHERE username = '".$usuario."'";
 $resultado = mysqli_query($conn, $query);
 
 $row = mysqli_fetch_row($resultado);
@@ -42,4 +42,3 @@ else{
     echo json_encode(array("message"=> "Deum ruim no login"));
 }
 }
-?>

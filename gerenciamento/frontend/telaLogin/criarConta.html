@@ -14,16 +14,15 @@
         <h1>Sistema de gerenciamento</h1>
     </header>
     <main>
-        <section id="login">
-            <h1> Login</h1>
-            <form onsubmit="return false">
+        <section id="criaConta">
+            <h1> Crie sua conta</h1>
+            <form action="../../../frontend/telaLogin/criaUsuario.php" method="POST">
                 <label for="Usuario"></label>
-                <input type="text" id="Usuario" name="Usuario" placeholder="Nome de Usuario"><br>
+                <input type="text" id="username" name="username" placeholder="Nome de Usuario"><br>
                 <label for="Senha"></label>
-                <input type="password" id="Senha" name="Senha" placeholder="Senha"><br>
-                <input id="submit" type="submit" value="Entrar" />
+                <input type="password" id="password" name="password" placeholder="Senha"><br>
+                <input id="submit" type="submit" value="Criar" />
             </form>
-            <a href="criarConta.php">Crie sua conta</a>
         </section>
     </main>
     <footer>

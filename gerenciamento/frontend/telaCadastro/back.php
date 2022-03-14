@@ -4,6 +4,13 @@ $dtNascCliente = $_POST['dtNascCliente'];
 $cpfCliente = $_POST['cpfCliente'];
 $rgCliente = $_POST['rgCliente'];
 $telefoneCliente = $_POST['telefoneCliente'];
+$lougradouroEndereco = $_POST['lougradouroEndereco'];
+$bairroEndereco = $_POST['bairroEndereco'];
+$cidadeEndereco = $_POST['cidadeEndereco'];
+$ufEndereco = $_POST['ufEndereco'];
+$complementoEndereco = $_POST['complementoEndereco'];
+$referenciaEndereco = $_POST['referenciaEndereco'];
+$cepEndereco = $_POST['cepEndereco'];
 // Fazer validacao aqui 
 
 
@@ -15,10 +22,14 @@ if(!validarCPF($cpfCliente)){
 }
 
 
-    $INSERT = "INSERT INTO clientes( nomeCliente, dtNascCliente, cpfCliente, rgCliente, telefoneCliente) VALUES ('$nomeCliente','$dtNascCliente'
-    ,'$cpfCliente','$rgCliente','$telefoneCliente')";
-    mysqli_query($conn, $INSERT);
 
+    $INSERT1 = "INSERT INTO clientes( nomeCliente, dtNascCliente, cpfCliente, rgCliente, telefoneCliente) VALUES ('$nomeCliente','$dtNascCliente'
+    ,'$cpfCliente','$rgCliente','$telefoneCliente')";
+    mysqli_query($conn, $INSERT1);
+
+    $INSERT = "INSERT INTO enderecocliente(cpfCliente, lougradouroEndereco, bairroEndereco, cidadeEndereco, ufEndereco, complementoEndereco, referenciaEndereco, cepEndereco) VALUES ('$cpfCliente','$lougradouroEndereco','$bairroEndereco'
+,'$cidadeEndereco','$ufEndereco','$complementoEndereco','$referenciaEndereco','$cepEndereco')";
+mysqli_query($conn, $INSERT);
     // Funcao de validar CPF encontrada aqui: https://gist.github.com/rafael-neri/ab3e58803a08cb4def059fce4e3c0e40
     function validarCPF($cpf){
          
@@ -52,4 +63,3 @@ if(!validarCPF($cpfCliente)){
 
     
 header('Location: '."http://localhost/gerenciamento/gerenciamento/backend/routes/gerenciamento/gerenciamento.php");
-?>

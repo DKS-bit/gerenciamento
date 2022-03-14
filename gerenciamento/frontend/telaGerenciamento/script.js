@@ -71,12 +71,16 @@ let incluir = document.getElementById("incluir");
 
 let editar = document.getElementById("editar");
 
+let incrementa = document.getElementById("incrementa");
+
+let decrementa = document.getElementById("decrementa")
+
+var dados;
 const xhttp = new XMLHttpRequest();
 xhttp.open("GET", "../../../frontend/telaGerenciamento/lerClientes.php");
 xhttp.onload = function () {
-    let dados = JSON.parse(xhttp.responseText);
-    console.log(dados[2]);
-    preencherTabela(dados);
+    dados = JSON.parse(xhttp.responseText);
+    preencherTabela(1);
 };
 xhttp.send();
 
@@ -90,6 +94,12 @@ visualizar.addEventListener("click", function () { visualizarCliente() }, false)
 incluir.addEventListener("click", function () { incluirCliente() }, false);
 
 editar.addEventListener("click", function () { editarCliente() }, false);
+
+incrementa.addEventListener("click", function (dados) { incrementaPagina(dados) }, false);
+
+decrementa.addEventListener("click", function (dados) { decrementaPagina(dados) }, false);
+
+
 
 function editarCliente() {
     let editarCliente = prompt("CPF do cliente que deseja visualizar");
@@ -180,10 +190,24 @@ function deletaCliente() {
     enviaRequest(deletaCliente);
 
 }
-function preencherTabela(dados) {
-    for (let j = 0, k = 1; j < 10; j++, k++) {
+let contaPagina = 1;
+function preencherTabela(contaPagina) {
+    let limite = contaPagina * 10;
+    let j;
+    let k;
+    if (contaPagina == 1) {
+        j = 0;
+        k = 0;
+    }
+    else {
+        j = (contaPagina - 1) * 10;
+    }
+    let cell = [];
+    //joguei o let cell pra fora
+    console.log("limite: "+limite);
+    for (j; j < limite; j++, k++) {
+        console.log("j: "+j);
         let linha = tabela.insertRow(k);
-        let cell = [];
         let i = 0;
         switch (i) {
             case 0:
@@ -207,5 +231,23 @@ function preencherTabela(dados) {
                 cell[i].innerHTML = dados[j].telefoneCliente;
                 i++
         };
+    }
+}
+
+
+function incrementaPagina() {
+    contaPagina++;
+     tabela.innerHTML = " ";
+     preencherTabela(contaPagina);
+   
+}
+function decrementaPagina() {
+    if (contaPagina == 1) {
+        alert("Impossivel voltar a pagina anterior");
+    }
+    else {
+        contaPagina--;
+        tabela.innerHTML = " ";
+        preencherTabela(contaPagina);
     }
 }
